@@ -20,9 +20,25 @@ export function initUI() {
   const introAudio = document.getElementById('intro-stranger-audio') as HTMLAudioElement;
   if (introAudio) {
     introAudio.volume = 0.4;
-    introAudio.play().catch((e) => {
-      console.log('Intro audio autoplay prevented:', e);
-    });
+    
+    // Try to play immediately, but also listen for user interaction as fallback
+    const tryPlay = () => {
+      introAudio.play().catch((e) => {
+        console.log('Intro audio autoplay prevented:', e);
+      });
+    };
+    
+    // Try immediately
+    tryPlay();
+    
+    // Also try on first user interaction (in case autoplay is blocked)
+    const playOnInteraction = () => {
+      tryPlay();
+      document.removeEventListener('click', playOnInteraction);
+      document.removeEventListener('touchstart', playOnInteraction);
+    };
+    document.addEventListener('click', playOnInteraction, { once: true });
+    document.addEventListener('touchstart', playOnInteraction, { once: true });
   }
 
   // Play button - transition to main content
@@ -157,14 +173,26 @@ export function initUI() {
   const bolsonaroImg = document.getElementById('bolsonaro-img') as HTMLImageElement;
   const guerrinhaAudio = document.getElementById('guerrinha-audio') as HTMLAudioElement;
   
+  // Get base path for assets
+  const basePath = import.meta.env.BASE_URL || '/';
+  
   // Array of images
   const bolsonaroImages = [
-    './bolsonaro1.jpg',
-    './bolsonaro2.jpeg',
-    './bolsonaro3.png',
-    './bolsonaro4.png',
-    './bolsonaro 5.jpeg'
+    `${basePath}bolsonaro1.jpg`,
+    `${basePath}bolsonaro2.jpeg`,
+    `${basePath}bolsonaro3.png`,
+    `${basePath}bolsonaro4.png`,
+    `${basePath}bolsonaro 5.jpeg`
   ];
+  
+  // Preload all images to avoid loading errors
+  bolsonaroImages.forEach((src) => {
+    const img = new Image();
+    img.onerror = () => {
+      console.error('Failed to load image:', src);
+    };
+    img.src = src;
+  });
   
   let clickCount = 0;
   const maxClicks = bolsonaroImages.length; // Use number of images as max clicks

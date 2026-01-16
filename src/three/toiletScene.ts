@@ -58,9 +58,13 @@ export function initToiletScene(container: HTMLElement) {
   const mtlLoader = new MTLLoader();
   const objLoader = new OBJLoader();
 
+  // Get base path from Vite config or use relative path
+  const basePath = import.meta.env.BASE_URL || '/';
+  const mtlPath = basePath === '/' ? './toilet1.mtl' : `${basePath}toilet1.mtl`;
+  
   // Try loading MTL first, if fails, load OBJ without materials
   mtlLoader.load(
-    './toilet1.mtl',
+    mtlPath,
     (materials) => {
       materials.preload();
       objLoader.setMaterials(materials);
@@ -74,8 +78,9 @@ export function initToiletScene(container: HTMLElement) {
   );
 
   function loadOBJ() {
+    const objPath = basePath === '/' ? './toilet.obj' : `${basePath}toilet.obj`;
     objLoader.load(
-      './toilet.obj',
+      objPath,
       (object) => {
         console.log('Toilet OBJ loaded successfully');
         toiletGroup = object;
