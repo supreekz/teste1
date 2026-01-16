@@ -149,7 +149,7 @@ export function initUI() {
 
         // Show result message
         if (bossResult) {
-          bossResult.textContent = '1 mosquito a menos. 100 carinhos a mais.';
+          bossResult.textContent = 'MOSQUITO ARROMBADO NINGUÉM MEXE COM MINHA NAMORADA';
           bossResult.classList.add('active');
         }
       }
