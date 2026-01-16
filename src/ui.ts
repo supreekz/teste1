@@ -2,13 +2,11 @@ import { initToiletScene } from './three/toiletScene';
 
 export type AppState = 'landing' | 'main';
 
-let currentState: AppState = 'landing';
-
 export function initUI() {
   const landingScreen = document.getElementById('landing');
   const mainContentScreen = document.getElementById('main-content');
   const playBtn = document.getElementById('play-btn');
-  const bossFightBtn = document.getElementById('boss-fight-btn');
+  const bossFightBtn = document.getElementById('boss-fight-btn') as HTMLButtonElement;
   const messageCards = document.querySelectorAll('.message-card');
   const messageDisplay = document.getElementById('message-display');
   const bossResult = document.getElementById('boss-result');
@@ -332,7 +330,6 @@ function transitionToMain() {
   setTimeout(() => {
     landingScreen.classList.remove('active');
     mainContentScreen.classList.add('active');
-    currentState = 'main';
 
     // Play audio
     if (audio) {

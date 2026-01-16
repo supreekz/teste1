@@ -118,6 +118,55 @@ As cores estão definidas no arquivo `src/styles.css`, na seção `:root` (linha
 - Todos os botões são grandes e acessíveis para uso no celular
 - A animação do mosquito é otimizada com low-poly geometry e iluminação simples
 
+## 🚀 Deploy no GitHub Pages
+
+### Opção 1: Deploy Automático (Recomendado)
+
+1. **Crie um repositório no GitHub** (ex: `dengue`)
+
+2. **Ajuste o base path no `vite.config.ts`**:
+   - Se o repositório for `dengue`, o base já está configurado como `/dengue/`
+   - Se for outro nome, altere: `base: '/nome-do-seu-repo/'`
+
+3. **Faça push do código**:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git branch -M main
+   git remote add origin https://github.com/SEU-USUARIO/dengue.git
+   git push -u origin main
+   ```
+
+4. **Configure o GitHub Pages**:
+   - Vá em Settings → Pages
+   - Source: selecione "GitHub Actions"
+   - O workflow `.github/workflows/deploy.yml` fará o deploy automaticamente
+
+5. **Aguarde o deploy** (alguns minutos) e acesse: `https://SEU-USUARIO.github.io/dengue/`
+
+### Opção 2: Deploy Manual
+
+1. **Build do projeto**:
+   ```bash
+   npm run build
+   ```
+
+2. **Ajuste o base path** no `vite.config.ts` para o nome do seu repositório
+
+3. **Faça push da pasta `dist`**:
+   ```bash
+   git subtree push --prefix dist origin gh-pages
+   ```
+   
+   Ou configure o GitHub Pages para usar a branch `gh-pages` com a pasta `dist`
+
+### ⚠️ Importante
+
+- **Base Path**: Se o repositório não for `dengue`, ajuste o `base` no `vite.config.ts`
+- **Arquivos estáticos**: Todos os arquivos (imagens, áudios, modelos 3D) devem estar na raiz do projeto para serem servidos corretamente
+- **Primeiro deploy**: Pode levar alguns minutos para o GitHub Pages ficar disponível
+
 ---
 
 Feito com carinho 💝
