@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modo: cuidar da Ju 🤍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Bebas+Neue&family=Orbitron:wght@400;700;900&family=Roboto+Condensed:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="app">
+    <!-- Landing Screen -->
+    <section id="landing" class="screen active">
+      <div class="vhs-overlay"></div>
+      
+      <!-- Stranger Things Graphics -->
+      <div class="stranger-graphics">
+        <!-- Grid Pattern with Nodes -->
+        <svg class="grid-pattern" width="100%" height="100%" preserveAspectRatio="none">
+          <defs>
+            <pattern id="grid" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(229, 9, 20, 0.2)" stroke-width="0.5"/>
+            </pattern>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" opacity="0.4"/>
+        </svg>
+
+        <!-- Red Glowing Nodes (Circuit Pattern) -->
+        <div class="grid-nodes">
+          <div class="node" style="top: 15%; left: 10%;"></div>
+          <div class="node" style="top: 25%; left: 20%;"></div>
+          <div class="node" style="top: 35%; left: 15%;"></div>
+          <div class="node" style="top: 45%; left: 25%;"></div>
+          <div class="node" style="top: 55%; left: 18%;"></div>
+          <div class="node" style="top: 20%; left: 75%;"></div>
+          <div class="node" style="top: 30%; left: 85%;"></div>
+          <div class="node" style="top: 40%; left: 80%;"></div>
+          <div class="node" style="top: 50%; left: 88%;"></div>
+          <div class="node" style="top: 60%; left: 82%;"></div>
+          <div class="node" style="top: 25%; left: 50%;"></div>
+          <div class="node" style="top: 45%; left: 50%;"></div>
+          <div class="node" style="top: 65%; left: 50%;"></div>
+        </div>
+
+        <!-- Upside Down Roots -->
+        <svg class="upside-down-roots" width="100%" height="100%" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="rootGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:rgba(229, 9, 20, 0.4);stop-opacity:1" />
+              <stop offset="100%" style="stop-color:rgba(229, 9, 20, 0.1);stop-opacity:1" />
+            </linearGradient>
+            <filter id="rootGlow">
+              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <!-- Root 1 - Left Side -->
+          <path d="M 0 800 Q 200 750 300 650 T 500 500 T 400 300 T 200 150" 
+                fill="none" 
+                stroke="url(#rootGradient)" 
+                stroke-width="3" 
+                filter="url(#rootGlow)"
+                opacity="0.6"/>
+          <!-- Root 2 - Left Bottom -->
+          <path d="M 50 1080 Q 150 1000 200 900 T 250 700 T 180 500" 
+                fill="none" 
+                stroke="url(#rootGradient)" 
+                stroke-width="2.5" 
+                filter="url(#rootGlow)"
+                opacity="0.5"/>
+          <!-- Root 3 - Right Side -->
+          <path d="M 1920 900 Q 1720 850 1620 750 T 1520 600 T 1620 450 T 1720 250" 
+                fill="none" 
+                stroke="url(#rootGradient)" 
+                stroke-width="3" 
+                filter="url(#rootGlow)"
+                opacity="0.6"/>
+          <!-- Root 4 - Right Bottom -->
+          <path d="M 1870 1080 Q 1770 1000 1720 900 T 1670 700 T 1740 500" 
+                fill="none" 
+                stroke="url(#rootGradient)" 
+                stroke-width="2.5" 
+                filter="url(#rootGlow)"
+                opacity="0.5"/>
+          <!-- Root 5 - Bottom Center -->
+          <path d="M 960 1080 Q 860 980 760 880 T 560 700 T 660 550 T 860 400" 
+                fill="none" 
+                stroke="url(#rootGradient)" 
+                stroke-width="2" 
+                filter="url(#rootGlow)"
+                opacity="0.4"/>
+        </svg>
+
+        <!-- Energy Particles -->
+        <div class="energy-particles">
+          <div class="particle" style="left: 20%; animation-delay: 0s;"></div>
+          <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+          <div class="particle" style="left: 60%; animation-delay: 2s;"></div>
+          <div class="particle" style="left: 80%; animation-delay: 0.5s;"></div>
+          <div class="particle" style="left: 30%; animation-delay: 1.5s;"></div>
+          <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+        </div>
+
+        <!-- Cracks Texture -->
+        <div class="cracks-overlay"></div>
+
+        <!-- Red Glow Effects -->
+        <div class="red-glow glow-1"></div>
+        <div class="red-glow glow-2"></div>
+        <div class="red-glow glow-3"></div>
+      </div>
+
+      <div class="content">
+        <h1 class="title glitch" data-text="Modo: cuidar da Ju 🤍">Modo: cuidar da Ju 🤍</h1>
+        <p class="subtitle">Sem pressa. Sem cobrança. Só carinho.</p>
+        <button id="play-btn" class="neon-btn" aria-label="Dar play">
+          <span class="btn-text">DAR PLAY</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Main Content Screen -->
+    <section id="main-content" class="screen">
+      <div class="vhs-overlay"></div>
+      <div class="content">
+        <!-- Checklist Section -->
+        <div class="section checklist-section">
+          <h2 class="section-title">Checklist de cuidados</h2>
+          <div class="checklist">
+            <label class="checklist-item">
+              <input type="checkbox" class="checkbox-input" checked disabled>
+              <span class="checkbox-label">Comer o escondidinho que o gui enviou</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox" class="checkbox-input">
+              <span class="checkbox-label">Leitinho quente</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox" class="checkbox-input">
+              <span class="checkbox-label">Banho bem morno pra relaxar o corpo</span>
+            </label>
+            <label class="checklist-item">
+              <input type="checkbox" class="checkbox-input">
+              <span class="checkbox-label">Não esquecer de ligar o ar pq POA deve estar muito quente</span>
+            </label>
+          </div>
+          <p class="special-message">"Como diria o Guerrinha: hoje é dia de dar a bunda pra eles"</p>
+        </div>
+
+        <!-- Bolsonaro Section -->
+        <div class="section bolsonaro-section">
+          <h2 class="section-title">Quem é o melhor presidente da história recente do Brasil?</h2>
+          <div class="president-choice">
+            <button id="bolsonaro-btn" class="president-card">
+              <img id="bolsonaro-img" src="./bolsonaro1.jpg" alt="Presidente" class="president-image">
+            </button>
+          </div>
+          
+          <!-- Toilet 3D -->
+          <div id="toilet-container" class="toilet-container"></div>
+
+          <!-- Flush Button -->
+          <button id="flush-btn" class="neon-btn flush-btn" style="display: none;">
+            <span class="btn-text">PUXAR A DESCARGA 🚽</span>
+          </button>
+
+          <!-- Lula Section (hidden initially) -->
+          <div id="lula-section" class="lula-section" style="display: none;">
+            <img id="lula-img" src="./lula1.webp" alt="Lula" class="lula-image">
+          </div>
+        </div>
+
+        <!-- Messages Section -->
+        <div class="section messages-section">
+          <h2 class="section-title">Mensagens pequenas por clique</h2>
+          <div class="messages-grid">
+            <button class="message-card" data-message="Tua profissão e o teu propósito é cuidar das pessoas. Mas tu também merece ser cuidada.">💌</span>
+              <span class="card-label">Clique</span>
+            </button>
+            <button class="message-card" data-message="O que tu deve ter roncado essa noite é loucura, tá????.">
+              <span class="card-icon">💌</span>
+              <span class="card-label">Clique</span>
+            </button>
+            <button class="message-card" data-message="Internacional de Porto Alegre.">
+              <span class="card-icon">💌</span>
+              <span class="card-label">Clique</span>
+            </button>
+            <button class="message-card" data-message="Amanhã tu já vai estar melhor. Te prometo (:">
+              <span class="card-icon">💌</span>
+              <span class="card-label">Clique</span>
+            </button>
+          </div>
+          <div id="message-display" class="message-display"></div>
+        </div>
+
+        <!-- Boss Fight Section -->
+        <div class="section bossfight-section">
+          <h2 class="section-title">Boss Fight</h2>
+          <button id="boss-fight-btn" class="neon-btn boss-btn" aria-label="Vai se ferrar mosquito">
+            <span class="btn-text">VAI SE FERRAR, MOSQUITO 🦟</span>
+          </button>
+          <div id="mosquito-container" class="mosquito-image-container">
+            <img id="mosquito-image" src="./dengue11.jpeg" alt="Mosquito da dengue" class="mosquito-image">
+          </div>
+          <div id="boss-result" class="boss-result"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+  <!-- Audio elements -->
+  <audio id="intro-stranger-audio" loop preload="auto">
+    <source src="./intro-stranger.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="netflix-audio" preload="auto">
+    <source src="./netflix.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="guerrinha-audio" preload="auto">
+    <source src="./guerrinha.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="descarga-audio" preload="auto">
+    <source src="./descarga.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="faz-o-l-audio" preload="auto">
+    <source src="./faz-o-l.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="ronco-audio" preload="auto">
+    <source src="./ronco.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="inter-audio" preload="auto">
+    <source src="./inter.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <audio id="covid-audio" preload="auto">
+    <source src="./covid.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+  <script type="module" src="/src/main.ts"></script>
+</body>
+</html>
